@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+.navbar-link {
+	@apply py-3 px-0 block border-b-2 border-transparent;
+}
+
+.navbar-link:hover{
+	@apply border-indigo-400;
+}
+
+@tailwind utilities;

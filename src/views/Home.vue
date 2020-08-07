@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main class="mt-10">
+    <div class="container mx-auto">
+      <div class="mb-8 text-center">
+        <h1 class="mb-4 text-3xl font-bold">AirlinesReview</h1>
+        <p class="">Share your personam experience of any airline</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <AirlineCompanyCard/>
+        <AirlineCompanyCard/>
+        <AirlineCompanyCard/>
+        <AirlineCompanyCard/>
+        <AirlineCompanyCard/>
+
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import AirlineCompanyCard from '@/components/AirlineCompanyCard';
 
 export default {
-  name: 'Home',
+  name: "Home",
+
   components: {
-    HelloWorld
-  }
-}
+    AirlineCompanyCard
+  },
+};
 </script>
