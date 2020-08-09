@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white shadow-lg rounded-lg overflow-hidden">
     <div class="px-4 py-2">
-      <h2 class="text-gray-900 font-bold text-xl uppercase">Airline 1</h2>
+      <h2 class="text-gray-900 font-bold text-xl uppercase">{{ airline.name }}</h2>
       <p class="text-gray-600 text-sm mt-1">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
         quidem sequi illum facere recusandae voluptatibus
@@ -10,19 +10,22 @@
 
     <img
       class="h-48 w-full object-cover mt-2"
-      src="https://images.unsplash.com/photo-1532882191016-9133c6d82083?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80"
+      :src="airline.imageUrl"
       alt="Airline"
     />
 
-    <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+    <div class="flex items-center justify-between px-4 py-2 bg-gray-800">
       <span class="text-gray-200 font-bold text-lg">
         <StarsRaiting :config="config" />
       </span>
-      <button
+
+      <router-link
         class="px-2 py-1 bg-gray-200 text-xs text-gray-900 font-semibold rounded uppercase"
+        :to="{name: 'airlines#reviews', params: {slug: airline.slug}}"
       >
         View Reviews
-      </button>
+      </router-link>
+
     </div>
   </div>
 </template>
@@ -31,10 +34,17 @@
 import StarsRaiting from '@/components/StarsRaiting';
 
 export default {
+  props: {
+    airline: {
+      type: Object, 
+      required: true
+    }
+  },
+
   data() {
     return {
       config: {
-        rating: 4,
+        rating: this.airline.averageScore,
         isIndicatorActive: true,
         style: {
           fullStarColor: "#ed8a19",
