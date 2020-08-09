@@ -12,8 +12,13 @@ const routes = [
   },
   {
     path: "/login",
-    name: 'login',
+    name: "login",
     component: () => import('@/views/Login.vue')
+  },
+  {
+    path: "/airlines/:slug/reviews",
+    name: "airlines#reviews",
+    component: () => import('@/views/Airline/Reviews.vue')
   }
 ];
 
